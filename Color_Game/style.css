@@ -1,0 +1,24 @@
+body {
+	text-align: center;		/* align-itemsはまったく違うものにご注意 */
+	margin: 0px;
+	padding: 10px;
+	background-color: #f0f0f0;
+	font-family: Arial, sans-serif;
+}
+
+#title {
+	background-color: #2196F3;
+	color: white;
+	padding: 15px;
+	font-size: 24px;
+	font-weight: bold;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+#canvas {
+	padding: 0px;
+	border: 1px solid #333;
+	/* box-shadow: 0 4px 8px rgba(0,0,0,0.2); */
+	background-color: white;
+}
