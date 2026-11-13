@@ -10,6 +10,7 @@ const NAME_MAX = 8;           // 名前の最大文字数（ゲーム側のNAME_
 const SCORE_MAX = 1000000;    // これを超えるスコアは不正とみなして拒否する（実際のプレイに合わせて調整）
 const MIN_INTERVAL_MS = 20000; // 同じ接続元からの登録の最短間隔（連続送信の抑制）
 const BODY_MAX = 200;         // 受け付ける本文の最大バイト数
+const VERSION = "ranking.mjs v3（送信ID対応・Blobs v10）";
 const KEY = "top";
 const RETRY = 5;
 
@@ -39,6 +40,8 @@ export default async (req, context) => {
   const store = getStore({ name: isProd ? "ranking" : "ranking-dev", consistency: "strong" });
 
   if (req.method === "GET") {
+    // 配備されているバージョンの確認用： /api/ranking?v をブラウザで開くと表示される
+    if (new URL(req.url).searchParams.has("v")) return text(VERSION);
     const entry = await store.get(KEY, { type: "json", consistency: "strong" });
     return text(encode(Array.isArray(entry) ? entry : []));
   }
@@ -60,6 +63,7 @@ export default async (req, context) => {
   const id = parts[1].trim();
   if (!/^[0-9a-f]{8,32}$/.test(id)) return text("bad id", 400);
   const name = cleanName(parts.slice(2).join(" "));
+  console.log(`POST score=${score} id=${id} name=${name} parts=${parts.length}`); // 何を受け取ったかをログに残す（原因調査用）
 
   try {
     // 同じ送信IDがすでに登録されていたら、二重に登録せずに、その順位を返す（再送や、応答が届かなかったときの救済）
