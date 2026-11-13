@@ -93,7 +93,8 @@ export default async (req, context) => {
       next.splice(pos, 0, { n: name, s: score, i: id });
       const trimmed = next.slice(0, RANK_MAX);
       const res = await store.setJSON(KEY, trimmed, cur ? { onlyIfMatch: cur.etag } : { onlyIfNew: true });
-      if (res.modified) {
+      // 古いバージョンのBlobsは書き込みの結果を返さない（undefined）ので、その場合は成功として扱う
+      if (res === undefined || res.modified) {
         if (ipKey) {
           try {
             await limiter.setJSON(ipKey, { t: now });
