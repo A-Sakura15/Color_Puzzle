@@ -1,0 +1,8 @@
+$: n("[<7 4 5 2 3 0 4 6>]!8"/*.add("<0 2>")*/)
+  .s("supersaw").scale("c:minor").delay(slider(0.75,0,1)).gain(0.3)
+  .punchcard()
+
+$: s("sbd!4").gain(0.5)
+$: s("[- hh]!4").gain(0.5)
+
+https://strudel.cc/#Ly8gUHJlYmFrZSBzY3JpcHQKLy8KLy8gVGhpcyBpcyBjb2RlIHRoYXQgaXMgbG9hZGVkIGJlZm9yZSB5b3VyIHBhdHRlcm4gaXMgcnVuLgovLyBZb3UgY2FuIHVzZSBpdCB0byBkZWZpbmUgY3VzdG9tIGZ1bmN0aW9ucyB0byB1c2UgaW4gYW55IHBhdHRlcm4uCi8vIAovLyBUaGlzIGlzIGFuIGluaXRpYWwgZXhhbXBsZSBzY3JpcHQuIFlvdSBjYW4gZWRpdCBpdCB0byBhZGQgCi8vIHlvdXIgb3duIGZ1bnRpb25zLgovLwovLyBUbyB1c2UgYSBzY3JpcHQgc2hhcmVkIGJ5IHNvbWUgb3RoZXIgdXNlciB5b3UgY2FuIHVzZQovLyB0aGUgaW1wb3J0LWJ1dHRvbiBvciBwYXN0ZSB0aGUgc2NyaXB0IGluIHRoaXMgZWRpdG9yLgoKY29uc3QgcmF0Y2hldCA9IHJlZ2lzdGVyKCdyYXRjaGV0JywgKHBhdCkgPT4gcGF0LnNvbWV0aW1lcyhwbHkoMikpKQoKJDogbigiWzw3IDQgNSAyIDMgMCA0IDY%2BXSE4Ii8qLmFkZCgiPDAgMj4iKSovKQogIC5zKCJzdXBlcnNhdyIpLnNjYWxlKCJjOm1pbm9yIikuZGVsYXkoc2xpZGVyKDAuNzUsMCwxKSkuZ2FpbigwLjMpCiAgLnB1bmNoY2FyZCgpCgokOiBzKCJzYmQhNCIpLmdhaW4oMC41KQokOiBzKCJbLSBoaF0hNCIpLmdhaW4oMC41KQ%3D%3D
